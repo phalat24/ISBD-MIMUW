@@ -3,14 +3,13 @@ use std::fs::File;
 use std::os::unix::fs::FileExt;
 
 mod hash;
-use hash::sum_block_hash;
 use hash::stretch_md5;
+use hash::sum_block_hash;
 
 const BLOCK_SIZE: u64 = 1024 * 1024;
 const K: u64 = 1000;
 
 fn main() {
-
     let args: Vec<String> = env::args().collect();
     if args.len() != 2 {
         println!("Usage: cargo run --release --bin pipeline filepath");
@@ -34,8 +33,7 @@ fn main() {
 
     let mut buffer = vec![0u8; BLOCK_SIZE as usize];
     let mut result = vec![0u8; 16];
-    for block_idx in 0..num_blocks
-    {
+    for block_idx in 0..num_blocks {
         let offset = block_idx * BLOCK_SIZE;
         let bytes_to_read = std::cmp::min(BLOCK_SIZE, total_size - offset) as usize;
 
@@ -56,5 +54,4 @@ fn main() {
         print!("{:02x}", byte);
     }
     println!("");
-
 }
