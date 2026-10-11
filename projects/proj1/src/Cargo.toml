@@ -8,13 +8,27 @@ name = "latency"
 path = "latency.rs"
 
 [[bin]]
+name = "latency_fixed"
+path = "latency_fixed.rs"
+
+[[bin]]
 name = "throughput"
 path = "throughput.rs"
+
+[[bin]]
+name = "throughput_fixed"
+path = "throughput_fixed.rs"
 
 [[bin]]
 name = "pipeline"
 path = "pipeline.rs"
 
+[[bin]]
+name = "pipeline_fixed"
+path = "pipeline_fixed.rs"
+
 [dependencies]
 md5 = "0.8.1"
+memmap2 = "0.9.11"
 rand = "0.10.3"
+
